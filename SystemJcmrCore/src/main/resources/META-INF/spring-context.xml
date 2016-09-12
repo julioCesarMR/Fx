@@ -1,0 +1,103 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd"
+       default-lazy-init="true">
+    
+    <context:annotation-config/>
+
+    <context:component-scan base-package="pe.edu.system.jcmr."/>
+    <tx:annotation-driven transaction-manager="transactionManager" order="2000"/>
+    <aop:aspectj-autoproxy />
+    
+    <tx:annotation-driven/>
+    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+            <property name="locations">
+                <list>
+                    <value>classpath:/META-INF/settings.properties</value>
+                     <value>classpath:/META-INF/mail.properties</value>
+                </list>
+            </property>
+    </bean>
+    
+  
+   <aop:config>
+        <aop:pointcut id="defaultServiceOperation" 
+                      expression="execution(* pe.edu.system.jcmr.*.*.*.*(..))"/>
+        
+        <aop:advisor advice-ref="myAdvice"   pointcut-ref="defaultServiceOperation" />
+        
+    </aop:config>
+    
+    <tx:advice id="myAdvice">
+        <tx:attributes>
+            <tx:method name="list*" read-only="true" />
+            <tx:method name="get*" read-only="true" />
+            <tx:method name="*" />
+        </tx:attributes>        
+    </tx:advice>
+  
+      <!-- 	   trasaction Manager  -->
+
+    <bean id="dataSource"
+          class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="JpaPersistenceUnit"/>
+    </bean>
+     
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager"
+        id="transactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+    
+    
+    <!-- 	   Configure e-mail    -->
+    
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	
+		<property name="host" value="${mail.host}" />
+ 		<property name="port" value="${mail.port}" /> 
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+	
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+<!-- 	   Configure Velocity for sending e-mail      -->
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">
+                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+                </prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean name="securityAspect" class="pe.edu.system.jcmr.util.SecurityAspect" />
+    
+    
+    
+ 
+</beans>

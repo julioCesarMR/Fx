@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="793.0" stylesheets="@../css/sendEmail.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="73.0" layoutY="232.0" prefHeight="200.0" prefWidth="506.0" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="232.0" />
+      <TextField layoutX="115.0" layoutY="65.0" prefHeight="25.0" prefWidth="446.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="232.0" />
+      <TextField layoutX="113.0" layoutY="110.0" prefHeight="25.0" prefWidth="446.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="232.0" />
+      <Label layoutX="83.0" layoutY="69.0" text="Para" />
+      <Label layoutX="56.0" layoutY="114.0" text="Compartir" />
+      <Label layoutX="65.0" layoutY="160.0" text="Asunto" />
+      <TextField layoutX="115.0" layoutY="156.0" prefHeight="25.0" prefWidth="446.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="232.0" />
+      <Button layoutX="632.0" layoutY="110.0" mnemonicParsing="false" text="Enviar" AnchorPane.rightAnchor="113.0" />
+   </children>
+</AnchorPane>

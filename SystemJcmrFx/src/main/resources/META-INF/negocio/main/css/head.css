@@ -1,0 +1,25 @@
+
+
+.idanchBarPerfil{
+		  -fx-background-color: #3C8DBC; 
+}
+
+
+
+#idcircleFotoBar{
+	
+	
+	-fx-stroke: white;
+	-fx-stroke-type: INSIDE;
+	
+	
+}
+
+#idlblNombreBar{
+	-fx-text-fill:#fff;
+	-fx-font-family:Source Sans Pro;
+	-fx-font-size: 1.3em;
+}
+
+
+

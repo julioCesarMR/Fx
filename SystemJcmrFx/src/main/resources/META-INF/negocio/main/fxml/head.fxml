@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="53.0" prefWidth="731.0" styleClass="idanchBarPerfil" stylesheets="@../css/head.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <AnchorPane fx:id="anchPaneBarPerfil" layoutX="471.0" layoutY="-6.0" prefHeight="76.0" prefWidth="284.0" styleClass="idanchBarPerfil" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Circle id="idcircleFotoBar" fx:id="circleFotoBar" layoutX="55.0" layoutY="38.0" radius="30.0" />
+            <Label id="idlblNombreBar" fx:id="lblNombreBar" layoutX="96.0" layoutY="23.0" prefHeight="22.0" prefWidth="174.0" text="lblNombre">
+                    
+             </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

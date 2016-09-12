@@ -1,0 +1,254 @@
+.root{
+	
+	-fx-background-color: white ;
+	
+}
+
+
+.letra{
+
+	-fx-text-fill:#fff;
+	-fx-font-family:Source Sans Pro;
+	-fx-font-size: 1.3em;
+	
+}
+
+.accordion{
+-fx-box-border: transparent;
+	-fx-background-color: #243740;
+}
+
+.titled-pane > .title > .arrow-button .arrow{
+
+    -fx-shape: "";
+    -fx-padding: 0 0 0 -4;
+}
+
+.titled-pane 
+{
+	
+    -fx-padding: 5 500 5 0; 
+    -fx-border-style: none; 
+    -fx-background-radius: 0;
+    -fx-border-width:2;
+    -fx-background-color: #243740;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff  ; 
+    -fx-alignment: baseline-left;
+
+
+}
+.scroll-pane > .viewport {
+   -fx-background-color: #243740;
+}
+
+.titled-pane:focused 
+{ 
+    -fx-padding: 5 50 5 0;  
+    -fx-border-style: none; 
+    -fx-background-radius: 0;
+    -fx-border-width:2;
+    -fx-background-color:  #243740;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff; 
+    -fx-alignment: baseline-left;
+}
+.titled-pane > .title 
+{
+
+-fx-background-color: #243740 ;
+-fx-padding: 0.166667em 0.833333em 0.25em 0.833333em;
+}
+
+.titled-pane:focused > .title 
+{
+      -fx-border-color: transparent  transparent  transparent #64D7E2;
+-fx-background-color: #243740 ;
+-fx-font-family:  "Source Sans Pro", "sans-serif";
+
+}
+
+
+.titled-pane > .title > .arrow-button > .arrow{
+    -fx-shape: null;
+}
+
+
+
+.titled-pane > *.content 
+{
+-fx-background-color: #243740;
+-fx-background-insets: 0, 0 1 1 1;
+-fx-padding: 0.167em;
+ }
+
+.titled-pane:focused > .title > .arrow-button .arrow 
+{
+-fx-background-color: #243740;
+}
+
+.button {
+    -fx-padding: 5 10 5 22;   
+    -fx-border-style: none; 
+    -fx-background-radius: 0;
+    -fx-border-width:2;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-background-color:#2C3B41;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #8AA4A4 ; 
+    -fx-alignment: baseline-left  ;
+}
+ 
+.button:hover{
+    -fx-text-fill: white  ;
+    -fx-border-color: transparent  transparent  transparent transparent;
+
+  
+}
+ 
+#AnchorPane:hover{
+	
+	 -fx-text-fill: red  ;
+} 
+ 
+.button:pressed, .button:default:hover:pressed
+{
+    -fx-padding: 5 22 5 22;   
+    -fx-border-style: none; 
+    -fx-background-radius: 0;
+    -fx-border-width:2;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #8AA4AF;
+  
+}
+ 
+.button:focused
+{
+    -fx-padding: 5 22 5 22;   
+    -fx-border-width:2;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #8AA4AF ; 
+  
+}
+ 
+.button:disabled, .button:default:disabled
+{
+    -fx-opacity: 0.4;
+    -fx-background-color: #8AA4AF;
+    -fx-text-fill: #8AA4AF;
+}
+ 
+.button:default
+{
+  
+    -fx-text-fill: #ffffff;
+}
+ 
+.button:default:hover{
+    -fx-background-color: #2C3B41;
+}
+
+
+
+
+
+
+.scroll-bar .thumb{
+    -fx-background-color: #cdcdcd;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-color: #dadada;
+}
+
+
+/* The following is not working. Maybe related to RT-10521*/
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #606060;
+}
+
+
+.scroll-bar .track {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+.scroll-bar .track-background {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+
+    -fx-padding: 0.25em; /* 3 */
+}
+
+.scroll-bar .increment-button:hover, .scroll-bar .decrement-button:hover  {
+    -fx-background-color: #dadada;
+}
+
+.scroll-bar .increment-button:pressed, .scroll-bar .decrement-button:pressed {
+    -fx-background-color: #606060;
+}
+
+.scroll-bar:horizontal .increment-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.5em 0.333333em 0.0em 0.0em; /* 6 4 0 0 */
+    -fx-shape: "M7.626,12.876L4.251,8.751H7.14L11,12.876L7.14,17H4.251L7.626,12.876z";
+}
+
+.scroll-bar:vertical .increment-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.333333em 0.5em 0.0em 0.0em; /* 4 6 0 0 */
+    -fx-shape: "M8.124,13.625l4.125-3.375v2.889l-4.125,3.86L4,13.139V10.25L8.124,13.625z";
+}
+
+.scroll-bar .increment-button:pressed .increment-arrow {
+    -fx-background-color: white, white;
+}
+
+.scroll-bar:horizontal .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.5em 0.333333em 0.0em 0.0em; /* 6 4 0 0 */
+    -fx-shape: "M11,17H8.111l-3.86-4.124l3.86-4.125H11l-3.375,4.125L11,17z";
+}
+
+.scroll-bar:vertical .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.333333em 0.5em 0.0em 0.0em; /* 4 6 0 0 */
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+}
+
+.scroll-bar .decrement-button:pressed .decrement-arrow {
+    -fx-background-color: white, white;
+}
+
+.scroll-bar:disabled {
+    -fx-opacity: 0.4;
+}
+
+
+

@@ -1,0 +1,549 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+ 
+
+}
+.root{
+	 
+	 -fx-border-color:#2c62b5;
+    -fx-background-color: white  ;
+}
+
+
+
+.item-title.disabled{
+    -fx-text-fill: #939393;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * tab-pane                                                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+ /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
+    -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overriden as 5 2 0 0 */
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #ffffff;
+    -fx-border-color: white white #e1e1e1 white;
+    -fx-border-insets: 0;
+    
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: gray ;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #ffffff;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Radio Button                                                                *
+ *                                                                             *
+ ******************************************************************************/
+ 
+.radio-button {
+    -fx-text-fill: #212121;
+}
+ 
+.radio-button .radio  {
+   -fx-background-color: white;
+   -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+   -fx-background-insets: 0;
+    
+   -fx-border-radius: 1.0em;
+   -fx-border-color: #bababa;
+     
+   -fx-padding: 4px; /* 4 -- padding from outside edge to the inner black dot */
+}
+ 
+.radio-button:hover .radio {
+    -fx-border-color: #919191;
+}
+ 
+ 
+.radio-button .dot {
+   -fx-background-color: transparent;
+   -fx-background-insets: 0;
+   -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+   -fx-padding: 6px; /* 3 -- radius of the inner black dot when selected */
+}
+ 
+.radio-button:selected .dot {
+   -fx-background-color: #212121;
+}
+ 
+.radio-button:disabled
+{
+    -fx-opacity: 0.5;
+}
+ 
+.radio-button:disabled .radio
+{
+    -fx-background-color: #e6e6e6;
+    -fx-border-color: #d9d9d9;
+}
+ 
+.radio-button:focused .radio
+{
+   -fx-background-color: white;
+   -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+   -fx-background-insets: 0;
+    
+   -fx-border-style: solid, segments(1, 1);
+   -fx-border-radius: 1.0em, 0;
+   -fx-border-color: #bababa, black;
+   -fx-border-insets: 0px, -2px;
+   -fx-border-width: 1px, 1px;
+     
+   -fx-padding: 4px; /* 4 -- padding from outside edge to the inner black dot */  
+}
+ 
+.radio-button:armed .radio {
+    -fx-background-color: #212121;
+    -fx-border-color: #212121;
+}
+ 
+.radio-button:pressed .radio
+{
+    -fx-background-color: #212121;
+    -fx-border-color: #212121;
+}
+ 
+.radio-button:pressed:selected .dot
+{
+    -fx-background-color: white;
+}
+ 
+.radio-button:armed .dot
+{
+    -fx-background-color: black;
+}
+ 
+.radio-button:focused:armed .radio
+{
+   -fx-background-color: #212121;
+   -fx-background-radius: 1.0em; /* large value to make sure this remains circular */
+   -fx-background-insets: 0;
+    
+   -fx-border-style: solid, segments(1, 1);
+   -fx-border-radius: 1.0em, 0;
+   -fx-border-color: #212121, #212121;
+   -fx-border-insets: 0px, -2px;
+   -fx-border-width: 1px, 1px;
+     
+   -fx-padding: 4px; /* 4 -- padding from outside edge to the inner black dot */  
+}
+
+
+.split-pane:horizontal > * > .split-pane-divider {
+   -fx-border-color: transparent -fx-box-border transparent red;
+   -fx-background-color: transparent, -fx-inner-border-horizontal;
+   -fx-background-insets: 0, 0 1 0 1;
+}
+
+/* vertical the two nodes are placed on top of each other. */
+.split-pane *.vertical-grabber {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: " ";
+}
+
+ 
+
+.progress-bar {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ProgressBarSkin";
+    -fx-background-color:white;
+    -fx-background-insets: 0, 1;
+    -fx-indeterminate-bar-length: 60;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+    -fx-indeterminate-bar-animation-time: 2;
+}
+
+.progress-bar .bar {
+    -fx-background-color:white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-padding: 0.416667em; /* 5 */
+}
+
+.progress-bar:indeterminate .bar {
+    -fx-background-color: orange ;
+}
+
+.progress-bar .track {
+     -fx-background-color:white ;
+    -fx-background-insets:  0, 1;
+}
+
+.progress-bar:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ * Table View                                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.table-row-cell:empty {
+    -fx-background-color: #f8f8f8;
+    -fx-base: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 0;
+}
+  
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}
+
+
+.split-pane:horizontal > * > .split-pane-divider {
+   -fx-border-color: transparent -fx-box-border transparent #BBBBBB;
+   -fx-background-color: transparent, -fx-inner-border-horizontal;
+   -fx-background-insets: 0, 0 1 0 1;
+}
+
+
+.split-pane *.vertical-grabber {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: " ";
+}
+
+.table-cell {     
+    -fx-padding: 0.5em 0.5em 0.1em 0.3em;
+    -fx-border-color: -fx-box-border -fx-box-border transparent transparent;  
+    -fx-font: 12px "Segoe UI";    
+    -fx-text-fill: #212121;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-insets: 0;
+}
+.table-view {
+    -fx-table-header-border-color: #959595;
+    -fx-table-cell-border-color: -fx-box-border;
+    -fx-control-inner-background: white;
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+}
+.table-view:focused {
+    -fx-background-color: -fx-box-border,-fx-box-border, white;
+}
+.table-row-cell {    
+    -fx-background-color: white;
+}
+.table-row-cell:odd {
+    -fx-background-color: white;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+.table-view:focused .table-row-cell:focused,.table-view:focused .table-row-cell:focused:odd {
+    -fx-background-color: -fx-box-border, white;
+    -fx-background-insets: 0, 1, 2;
+}
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-box-border, rgb(205,205,205);
+}
+.table-view:focused .table-row-cell:filled:selected, .table-view:row-selection .table-row-cell:filled:hover:selected {    
+    -fx-background-color: gray;
+    -fx-background-insets: 0,1 1 1 1 0;
+}
+.table-view:focused .table-row-cell:filled:focused:selected:hover {    
+    -fx-background-color: -fx-box-border, rgb(205,205,205);
+    -fx-background-insets: 0,1 1 1 1 0;
+}
+.table-row-cell:filled:selected:focused, .table-row-cell:filled:selected {
+ 
+    
+}
+/*Permite cambiar el color de la seleccion */
+.table-view:row-selection .table-row-cell:filled:hover { 
+    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-selection-bar;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: red;
+}
+.table-view:row-selection .table-row-cell:filled:focused:hover { 
+    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-selection-bar;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: red;
+}
+.table-view:focused .table-row-cell:filled:focused:hover {
+    -fx-background-color: -fx-box-border,rgb(231,231,231);
+}
+.table-view .column-header-background {
+    -fx-background-color: white;
+}
+ 
+/* Permite cambiar el color de la letras de  cabecera y la posicion */
+.table-view .column-header .label{
+    -fx-text-fill: black ;
+    -fx-alignment: baseline-left  ;
+ 
+}
+
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: white;    
+    -fx-size: 35;
+    -fx-border-color: -fx-box-border;
+    -fx-border-insets: -1 0 0 -1;
+    -fx-padding: 0 5 0 0;
+}
+.table-view .show-hide-columns-button {
+    -fx-background-color: white;
+    -fx-border-color: -fx-box-border;
+    -fx-border-insets: -1 -1 0 0;
+}
+.table-view .column-drag-header {    
+    -fx-background-color: rgb(45,137,239);
+    -fx-opacity: 0.6;
+}
+.table-view .column-resize-line {  
+    -fx-background-color: rgb(45,137,239);
+}
+.table-view .column-overlay {
+    -fx-background-color: darkgray;
+    -fx-opacity: 0.2;
+}
+.table-view .arrow {
+    -fx-padding: 0.2em;
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+}
+
+.background{
+    -fx-background-color: white;
+}
+ 
+.header{
+
+    -fx-font-size: 42pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+}
+ 
+.item-title{
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 0.6;
+      
+}
+
+.scroll-bar .thumb{
+    -fx-background-color: #cdcdcd;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-color: #dadada;
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #606060;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar .track-background {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: #f0f0f0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0.25em; /* 3 */
+}
+
+.scroll-bar .increment-button:hover, .scroll-bar .decrement-button:hover  {
+    -fx-background-color: #dadada;
+}
+
+.scroll-bar .increment-button:pressed, .scroll-bar .decrement-button:pressed {
+    -fx-background-color: #606060;
+}
+
+.scroll-bar:horizontal .increment-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.5em 0.333333em 0.0em 0.0em; /* 6 4 0 0 */
+    -fx-shape: "M7.626,12.876L4.251,8.751H7.14L11,12.876L7.14,17H4.251L7.626,12.876z";
+}
+
+.scroll-bar:vertical .increment-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.333333em 0.5em 0.0em 0.0em; /* 4 6 0 0 */
+    -fx-shape: "M8.124,13.625l4.125-3.375v2.889l-4.125,3.86L4,13.139V10.25L8.124,13.625z";
+}
+
+.scroll-bar .increment-button:pressed .increment-arrow {
+    -fx-background-color: white, white;
+}
+
+.scroll-bar:horizontal .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.5em 0.333333em 0.0em 0.0em; /* 6 4 0 0 */
+    -fx-shape: "M11,17H8.111l-3.86-4.124l3.86-4.125H11l-3.375,4.125L11,17z";
+}
+
+.scroll-bar:vertical .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
+    -fx-background-insets: 1 0 -1 0, 0;
+    -fx-padding: 0.333333em 0.5em 0.0em 0.0em; /* 4 6 0 0 */
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+}
+
+.scroll-bar .decrement-button:pressed .decrement-arrow {
+    -fx-background-color: white, white;
+}
+
+.scroll-bar:disabled {
+    -fx-opacity: 0.4;
+}
+/*******************************************************************************
+ *                                                                             *
+ * Pagination                                                               *
+ *                                                                             *
+ ******************************************************************************/	
+.pagination{
+
+ /*-fx-base:black*/
+
+}
+
+.pagination .toggle-button , .mypage .button{
+
+    -fx-background-radius:15px;
+
+    -fx-padding: 0px;
+
+}
+
+.pagination .button{
+
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-border-width: 2;
+    -fx-border-color : #DDDDDD  ;
+    -fx-background-color: #DDDDDD;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+ 
+}
+
+.pagination .label {
+
+    -fx-text-fill:white;
+
+}
+
+.tool-bar {
+    -fx-base: white;
+    -fx-font-size: 12pt;
+    -fx-background-insets: 0, 0 0 0 0;
+    -fx-padding: .9em 0.416667em .9em 0.416667em;
+    
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *Tab                                                          *
+ *                                                                             *
+ ******************************************************************************/
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+    
+}
+.tab-pane:top *.tab-header-area {
+    -fx-background-insets: 0, 0 0 1 0;
+ /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
+    -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overriden as 5 2 0 0 */
+}
+.tab-pane
+{
+	
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+
+   /* -fx-padding: 1.5,8,1.5,8;*/ 
+
+      
+}
+
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: white ;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #96b946;
+    -fx-shape: "M15.396,2.292H4.604c-0.212,0-0.385,0.174-0.385,0.386v14.646c0,0.212,0.173,0.385,0.385,0.385h10.792c0.211,0,0.385-0.173,0.385-0.385V2.677C15.781,2.465,15.607,2.292,15.396,2.292 M15.01,16.938H4.99v-2.698h1.609c0.156,0.449,0.586,0.771,1.089,0.771c0.638,0,1.156-0.519,1.156-1.156s-0.519-1.156-1.156-1.156c-0.503,0-0.933,0.321-1.089,0.771H4.99v-3.083h1.609c0.156,0.449,0.586,0.771,1.089,0.771c0.638,0,1.156-0.518,1.156-1.156c0-0.638-0.519-1.156-1.156-1.156c-0.503,0-0.933,0.322-1.089,0.771H4.99V6.531h1.609C6.755,6.98,7.185,7.302,7.688,7.302c0.638,0,1.156-0.519,1.156-1.156c0-0.638-0.519-1.156-1.156-1.156c-0.503,0-0.933,0.322-1.089,0.771H4.99V3.062h10.02V16.938z M7.302,13.854c0-0.212,0.173-0.386,0.385-0.386s0.385,0.174,0.385,0.386s-0.173,0.385-0.385,0.385S7.302,14.066,7.302,13.854 M7.302,10c0-0.212,0.173-0.385,0.385-0.385S8.073,9.788,8.073,10s-0.173,0.385-0.385,0.385S7.302,10.212,7.302,10 M7.302,6.146c0-0.212,0.173-0.386,0.385-0.386s0.385,0.174,0.385,0.386S7.899,6.531,7.688,6.531S7.302,6.358,7.302,6.146"
+}
+

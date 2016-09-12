@@ -1,0 +1,7 @@
+
+.imageView{
+  -fx-background-color: white ;
+   -fx-background-insets: 10; 
+  
+   -fx-effect: dropshadow(three-pass-box, gray, 40, 0, 0, 0);
+} 

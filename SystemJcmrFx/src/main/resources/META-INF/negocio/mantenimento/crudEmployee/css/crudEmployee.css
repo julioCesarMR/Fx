@@ -1,0 +1,48 @@
+.mainFxmlClass {
+ 
+ -fx-background-color: white ;
+
+}
+.root{
+	 
+	 -fx-border-color:#2c62b5;
+    -fx-background-color: black ;
+}
+
+.imageView{
+ -fx-background-color: #4169e1;  
+  -fx-background-insets: 10; 
+  -fx-background-radius: 10; 
+  -fx-effect: dropshadow(three-pass-box, #4169e1, 10, 0, 0, 0);
+} 
+.imgprueba{
+ -fx-background-color: #4169e1;  
+  -fx-background-insets: 10; 
+  -fx-background-radius: 10; 
+  -fx-effect: dropshadow(three-pass-box, #4169e1, 10, 0, 0, 0);
+}
+.imgprueba:hover{
+  -fx-background-color: #4169e1;  
+  -fx-background-insets: 10; 
+  -fx-background-radius: 10; 
+  -fx-effect: dropshadow(three-pass-box, #4169e1, 10, 0, 0, 0);
+}
+.titleLabel{
+	 -fx-text-fill:orange   ;
+	-fx-font-family:'Source Sans Pro', sans-serif;
+	-fx-font-size: 18px;
+}
+.labelCss{
+	-fx-text-fill:black ;
+	-fx-font-family:'Source Sans Pro', sans-serif;
+	-fx-content-display: red;
+	-fx-font-size: 14px;
+}
+.anchSaveCss{
+	-fx-border-color: #64D7E2  transparent  transparent transparent;
+	
+}
+.anchFoundCss{
+	-fx-border-color: orange   transparent  transparent transparent;
+	
+}

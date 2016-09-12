@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefHeight="615.0" prefWidth="301.0" stylesheets="@../css/menu.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <ScrollPane fx:id="scrollPaneMenu" layoutY="146.0" prefHeight="469.0" prefWidth="301.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="146.0">
+         <content>
+            <Accordion fx:id="idAcordionMenu" prefHeight="466.0" prefWidth="299.0" style="fx-background-color: #243740;">
+     
+      </Accordion>
+         </content>
+      </ScrollPane>
+      <AnchorPane id="idanchMenuPerfil" fx:id="anchMenuPerfil" prefHeight="111.0" prefWidth="301.0" styleClass="letraWhite">
+         <children>
+            <Circle id="idCircleFoto" fx:id="circleFoto" layoutX="54.0" layoutY="55.0" radius="48.0" />
+            <Label fx:id="lblNombre" layoutX="115.0" layoutY="24.0" prefHeight="22.0" prefWidth="174.0" styleClass="letraWhite" text="lblNombre">
+             
+            </Label>
+            <Label layoutX="133.0" layoutY="48.0" styleClass="letraWhite" text="Online" />
+            <Circle layoutX="122.0" layoutY="60.0" radius="7.0" styleClass="circleOline" />
+         </children>
+      </AnchorPane>
+      <AnchorPane id="idanchTitleMenu" layoutY="111.0" prefHeight="36.0" prefWidth="301.0">
+         <children>
+            <Label id="idlblOpciones" layoutX="48.0" layoutY="7.0" prefHeight="17.0" prefWidth="103.0" text="%key.lblOpciones" />
+         </children>
+      </AnchorPane>
+      
+   </children>
+</AnchorPane>

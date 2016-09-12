@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.pe.system.jcmr</groupId>
+    <artifactId>SystemJcmr</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.pe.system.jcmr</groupId>
+  <artifactId>SystemJcmrFx</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>SystemJcmrFx</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+       <dependency>
+            <groupId>com.pe.system.jcmr</groupId>
+            <artifactId>SystemJcmrCore</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    
+         <dependency>
+	   <groupId>org.controlsfx</groupId>
+	   <artifactId>controlsfx</artifactId>
+	   <version>8.40.11</version>
+       </dependency>
+
+	<dependency>
+		<groupId>org.jfxtras</groupId>
+		<artifactId>jfxtras-labs</artifactId>
+		<version>8.0-r4</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.github.sarxos</groupId>
+		<artifactId>webcam-capture</artifactId>
+		<version>0.3.10</version>
+	</dependency>
+	<dependency>
+	   <groupId>io.datafx</groupId>
+    <artifactId>flow</artifactId>
+    <version>8.0.1</version>
+	</dependency>
+	
+    </dependencies>
+    
+    
+    
+  	 <reporting>
+    <plugins>
+    
+	  <!-- Definición y configuración del plugin PMD  -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.4</version>
+        
+        <configuration>
+          
+          <!-- Codificación del código fuente -->
+          <sourceEncoding>utf-8</sourceEncoding>
+          
+          <!-- Para el análisis de CPD: Si dos bloques de al menos 20 palabras son iguales se reportará en el resultado -->
+          <minimumTokens>20</minimumTokens>
+          
+          <!-- Código fuente para 1.5 -->
+          <targetJdk>1.8</targetJdk>
+          
+          <!-- 
+          	¿Qué reglas deseamos aplicar?
+          	
+          	Por defecto si no se dice nada se aplican las reglas: basic, unusedcode, imports
+          	
+          	Puede ver un listado de todos los ruleset en: http://pmd.sourceforge.net/rules/index.html   
+          -->
+          <rulesets>
+          	<!--  Estas reglas están dentro del JAR del PMD -->
+          	<ruleset>/rulesets/basic.xml</ruleset>
+            <ruleset>/rulesets/braces.xml</ruleset>
+            <ruleset>/rulesets/design.xml</ruleset>
+            <ruleset>/rulesets/unusedcode.xml</ruleset>
+            <ruleset>/rulesets/imports.xml</ruleset>
+            <ruleset>/rulesets/controversial.xml</ruleset>
+            <ruleset>/rulesets/migrating.xml</ruleset>
+			<ruleset>/rulesets/strings.xml</ruleset>
+			<ruleset>/rulesets/optimizations.xml</ruleset>
+			
+			<!-- 
+				Puedo definir mis propios ruleset o modificar uno existente, colocarlo en el sistema de fichero y hacer referencia a el. 
+				Por ejemplo:
+				<ruleset>c:/java/pmd/my_rules/naming2.xml</ruleset>				
+			-->
+          </rulesets>
+          
+        <!-- 
+        	Si no ponemos reportSets se generan todos los informes.
+        	Si queremos desahilitar alguno podemos comentarlo
+         -->
+        <reportSets>
+          <reportSet>
+            <reports>
+				<report>pmd</report>
+				<report>cpd</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+          
+        </configuration>
+      </plugin>      
+    </plugins>
+  </reporting>
+      <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>    
+        </plugins>
+    </build>
+
+</project>

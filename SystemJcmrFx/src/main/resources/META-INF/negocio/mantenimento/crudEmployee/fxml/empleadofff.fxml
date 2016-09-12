@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import pe.edu.system.jcmr.validation.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="925.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.system.jcmr.controlador.MantenimientoFXMLController">
+   <children>
+      <AnchorPane fx:id="anchC" layoutY="86.0" prefHeight="554.0" prefWidth="925.0" styleClass="anchSaveCss" visible="false" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="86.0">
+         <children>
+            <Label layoutX="37.0" layoutY="16.0" styleClass="titleLabel" text="%crudEmpleadoFxml.general" textFill="#fbbc1b" />
+            <ImageView fitHeight="186.0" fitWidth="231.0" layoutX="549.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" styleClass="imgprueba" />
+            <Label layoutX="68.0" layoutY="435.0" text="%crudEmpleadoFxml.direccion" />
+            <GridPane layoutX="35.0" layoutY="45.0" prefHeight="223.0" prefWidth="399.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="290.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="%crudEmpleadoFxml.nombre" GridPane.halignment="CENTER" />
+                  <Label text="%crudEmpleadoFxml.apellido" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label text="%crudEmpleadoFxml.dni" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="%crudEmpleadoFxml.clave" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                  <Label text="%crudEmpleadoFxml.fecNacimiento" GridPane.rowIndex="4" />
+                  <Label text="%crudEmpleadoFxml.tipoEmpleado" GridPane.rowIndex="5" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label text="%crudEmpleadoFxml.generoSex" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                  <RadioButton mnemonicParsing="false" text="M" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <RadioButton mnemonicParsing="false" text="F" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+            <GridPane layoutX="35.0" layoutY="317.0" prefHeight="104.0" prefWidth="357.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="107.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="229.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="%crudEmpleadoFxml.departamento" GridPane.halignment="CENTER" />
+                  <Label text="%crudEmpleadoFxml.provincia" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label text="%crudEmpleadoFxml.distrito" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
+                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <Label layoutX="62.0" layoutY="282.0" styleClass="titleLabel" text="%crudEmpleadoFxml.title.direccion" textFill="#fbbc1b" />
+            <TextField layoutX="164.0" layoutY="430.0" prefHeight="25.0" prefWidth="303.0" />
+            <GridPane layoutX="353.0" layoutY="317.0" prefHeight="104.0" prefWidth="391.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="101.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" prefWidth="220.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="%crudEmpleadoFxml.telefono" GridPane.halignment="CENTER" />
+                  <Label text="%crudEmpleadoFxml.celular" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label text="%crudEmpleadoFxml.email" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <Label layoutX="382.0" layoutY="282.0" styleClass="titleLabel" text="%crudEmpleadoFxml.title.contacto" textFill="#fbbc1b" />
+         </children>
+         <stylesheets>
+            <URL value="@../css/crudEmployee.css" />
+            <URL value="@../../../main/css/main.css" />
+         </stylesheets>
+      </AnchorPane>
+      <AnchorPane layoutX="3.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="66.0" prefWidth="725.0">
+         <children>
+            <Button fx:id="btnSave"   layoutX="377.0" layoutY="5.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="43.0" stylesheets="@../../../../component/buttonBar/css/buttonCircle.css">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../component/buttonBar/img/save.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEdit"  layoutX="437.0" layoutY="4.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="43.0" stylesheets="@../../../../component/buttonBar/css/buttonCircle.css">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../component/buttonBar/img/edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnSearch"  layoutX="316.0" layoutY="4.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="43.0" stylesheets="@../../../../component/buttonBar/css/buttonCircle.css">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../component/buttonBar/img/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnDelete" layoutX="499.0" layoutY="3.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="43.0" stylesheets="@../../../../component/buttonBar/css/buttonCircle.css">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../component/buttonBar/img/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnRefresh" layoutX="567.0" layoutY="3.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="43.0" stylesheets="@../../../../component/buttonBar/css/buttonCircle.css">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../component/buttonBar/img/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="#759cd6" layoutX="25.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%crudEmpleadoFxml.title">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchFound" layoutX="-4.0" layoutY="96.0" prefHeight="554.0" prefWidth="939.0"  visible="true">
+          
+         <stylesheets>
+            <URL value="@../css/crudEmployee.css" />
+            <URL value="@../../../main/css/main.css" />
+         </stylesheets>
+      </AnchorPane>
+   </children>
+</AnchorPane>

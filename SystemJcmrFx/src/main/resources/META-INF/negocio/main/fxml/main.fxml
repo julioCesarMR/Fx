@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1225.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.system.jcmr.controlador.MainController">
+   <children>
+      <AnchorPane prefHeight="615.0" prefWidth="301.0" stylesheets="@../css/menu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ScrollPane fx:id="scrollPaneMenu" layoutY="146.0" prefHeight="469.0" prefWidth="301.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="146.0">
+               <content>
+                  <Accordion fx:id="idAcordionMenu" prefHeight="466.0" prefWidth="299.0" style="fx-background-color: #243740;">
+     
+      </Accordion>
+               </content>
+            </ScrollPane>
+            <AnchorPane id="idanchMenuPerfil" fx:id="anchMenuPerfil" prefHeight="111.0" prefWidth="301.0" styleClass="letraWhite">
+               <children>
+                  <Circle id="idCircleFoto" fx:id="circleFoto" layoutX="54.0" layoutY="55.0" radius="48.0" />
+                  <Label fx:id="lblNombre" layoutX="115.0" layoutY="24.0" prefHeight="22.0" prefWidth="174.0" styleClass="letraWhite" text="lblNombre">
+             
+            </Label>
+                  <Label layoutX="133.0" layoutY="48.0" styleClass="letraWhite" text="Online" />
+                  <Circle layoutX="122.0" layoutY="60.0" radius="7.0" styleClass="circleOline" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="idanchTitleMenu" layoutY="111.0" prefHeight="36.0" prefWidth="301.0">
+               <children>
+                  <Label id="idlblOpciones" fx:id="lblOpciones" layoutX="48.0" layoutY="7.0" prefHeight="17.0" prefWidth="103.0"  />
+               </children>
+            </AnchorPane>
+            
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="70.0" prefWidth="777.0" styleClass="idanchBarPerfil" stylesheets="@../css/head.css" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="anchPaneBarPerfil" layoutX="471.0" layoutY="-6.0" prefHeight="76.0" prefWidth="284.0" styleClass="idanchBarPerfil" AnchorPane.leftAnchor="641.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Circle id="idcircleFotoBar" fx:id="circleFotoBar" layoutX="55.0" layoutY="38.0" radius="30.0" />
+                  <Label id="idlblNombreBar" fx:id="lblNombreBar" layoutX="96.0" layoutY="23.0" prefHeight="22.0" prefWidth="174.0" text="lblNombre" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="0.0">
+                    
+             </Label>
+               </children>
+            </AnchorPane>
+            <Text fx:id="lblTitle" fill="#edf0f5" layoutX="14.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLEADO">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="308.0" layoutY="201.0" prefHeight="544.0" prefWidth="777.0" stylesheets="@../css/body.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <ScrollPane fx:id="scrollbarBody" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="647.0" prefWidth="925.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <content>
+                  <AnchorPane fx:id="anchBody" prefHeight="652.0" prefWidth="1225.0" style="-fx-background-color: white;" />
+              </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

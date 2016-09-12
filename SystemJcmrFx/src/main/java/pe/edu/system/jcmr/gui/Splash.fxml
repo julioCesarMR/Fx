@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.PasswordField?>
+
+<StackPane fx:id="stackMain" prefHeight="332.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.system.jcmr.controlador.SplashController">
+   <children>
+      <ImageView fx:id="imgLogo" fitHeight="344.0" fitWidth="391.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@splashGray.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="98.0" fx:id="imgLogo2" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" >
+        <image>
+            <Image url="@splashGray.png" />
+         </image>
+      </ImageView>
+     
+  
+   </children>
+</StackPane>

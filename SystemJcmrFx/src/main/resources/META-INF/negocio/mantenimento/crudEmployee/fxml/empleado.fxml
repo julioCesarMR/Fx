@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<?import pe.edu.system.jcmr.component.DialogConfirmJCMR?>
+
+<StackPane xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.system.jcmr.controlador.MantenimientoFXMLController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1050.0">
+         <children>
+            <AnchorPane fx:id="anchCRUD" layoutX="7.0" layoutY="-25.0" prefHeight="671.0" prefWidth="1000.0" style="-fx-background-color: white;" styleClass="anchSaveCss" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="-25.0">
+               <children>
+                  <Label layoutX="24.0" layoutY="103.0" styleClass="titleLabel" text="%crudEmpleadoFxml.general" textFill="#fbbc1b" />
+                  <ImageView fx:id="imgPhotoEmployee" fitHeight="186.0" fitWidth="231.0" layoutX="776.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" styleClass="imgprueba">
+                     <image>
+                        <Image url="@../img/webcam.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="19.0" layoutY="494.0" styleClass="titleLabel" text="%crudEmpleadoFxml.title.contacto" textFill="#fbbc1b" />
+                  <Label layoutX="400.0" layoutY="103.0" styleClass="titleLabel" text="%crudEmpleadoFxml.title.direccion" textFill="#fbbc1b" />
+                  <JFXTextField fx:id="txtLastName" focusColor="#55a83f" labelFloat="true" layoutX="15.0" layoutY="204.0" maxWidth="349.0" minWidth="349.0" prefHeight="31.0" prefWidth="349.0" promptText="%crudEmpleadoFxml.apellido">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtNumDocument" focusColor="#55a83f" labelFloat="true" layoutX="19.0" layoutY="254.0" maxWidth="349.0" minWidth="163.0" prefHeight="31.0" prefWidth="163.0" promptText="%crudEmpleadoFxml.dni">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtPassword" focusColor="#55a83f" labelFloat="true" layoutX="209.0" layoutY="254.0" maxWidth="349.0" minWidth="124.0" prefHeight="31.0" prefWidth="144.0" promptText="%crudEmpleadoFxml.clave">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <RadioButton fx:id="rboFemale" layoutX="151.0" layoutY="451.0" mnemonicParsing="false" text="F" />
+                  <RadioButton fx:id="rbMale" layoutX="82.0" layoutY="451.0" mnemonicParsing="false" text="M" />
+                  <JFXTextField fx:id="txtEmail" focusColor="#55a83f" labelFloat="true" layoutX="22.0" layoutY="584.0" maxWidth="302.0" minWidth="274.0" prefHeight="37.0" prefWidth="290.0" promptText="%crudEmpleadoFxml.email">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtCell" focusColor="#55a83f" labelFloat="true" layoutX="175.0" layoutY="533.0" maxWidth="302.0" minWidth="144.0" prefHeight="37.0" prefWidth="144.0" promptText="%crudEmpleadoFxml.celular">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtPhone" focusColor="#55a83f" labelFloat="true" layoutX="23.0" layoutY="533.0" maxWidth="302.0" minWidth="155.0" prefHeight="37.0" prefWidth="155.0" promptText="%crudEmpleadoFxml.telefono">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXComboBox fx:id="cboProvincia" editable="true" layoutX="394.0" layoutY="204.0" prefHeight="27.0" prefWidth="263.0" promptText="%crudEmpleadoFxml.provincia" />
+                  <JFXComboBox fx:id="cboDistrito" editable="true" layoutX="394.0" layoutY="254.0" prefHeight="27.0" prefWidth="263.0" promptText="%crudEmpleadoFxml.distrito" />
+                  <JFXComboBox fx:id="cboDepartamento" editable="true" layoutX="394.0" layoutY="155.0" prefHeight="27.0" prefWidth="263.0" promptText="%crudEmpleadoFxml.departamento" />
+                  <ToolBar fx:id="toolBarAction" layoutX="271.0" layoutY="17.0" prefHeight="86.0" prefWidth="614.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="16.0">
+                     <items>
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnOnSave" prefHeight="44.0" prefWidth="46.0" stylesheets="@../../../../component/button/css/buttonCircle.css">
+                           <graphic>
+                              <SVGPath content="M17.064,4.656l-2.05-2.035C14.936,2.544,14.831,2.5,14.721,2.5H3.854c-0.229,0-0.417,0.188-0.417,0.417v14.167c0,0.229,0.188,0.417,0.417,0.417h12.917c0.229,0,0.416-0.188,0.416-0.417V4.952C17.188,4.84,17.144,4.733,17.064,4.656M6.354,3.333h7.917V10H6.354V3.333z M16.354,16.667H4.271V3.333h1.25v7.083c0,0.229,0.188,0.417,0.417,0.417h8.75c0.229,0,0.416-0.188,0.416-0.417V3.886l1.25,1.239V16.667z M13.402,4.688v3.958c0,0.229-0.186,0.417-0.417,0.417c-0.229,0-0.417-0.188-0.417-0.417V4.688c0-0.229,0.188-0.417,0.417-0.417C13.217,4.271,13.402,4.458,13.402,4.688" fill="WHITE" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                       <Button fx:id="btnRefresh" mnemonicParsing="false" onAction="#btnOnRefresh" prefHeight="44.0" prefWidth="46.0" stylesheets="@../../../../component/button/css/buttonCircle.css">
+                           <graphic>
+                              <SVGPath content="M19.305,9.61c-0.235-0.235-0.615-0.235-0.85,0l-1.339,1.339c0.045-0.311,0.073-0.626,0.073-0.949c0-3.812-3.09-6.901-6.901-6.901c-2.213,0-4.177,1.045-5.44,2.664l0.897,0.719c1.053-1.356,2.693-2.232,4.543-2.232c3.176,0,5.751,2.574,5.751,5.751c0,0.342-0.037,0.675-0.095,1l-1.746-1.39c-0.234-0.235-0.614-0.235-0.849,0c-0.235,0.235-0.235,0.615,0,0.85l2.823,2.25c0.122,0.121,0.282,0.177,0.441,0.172c0.159,0.005,0.32-0.051,0.44-0.172l2.25-2.25C19.539,10.225,19.539,9.845,19.305,9.61z M10.288,15.752c-3.177,0-5.751-2.575-5.751-5.752c0-0.276,0.025-0.547,0.062-0.813l1.203,1.203c0.235,0.234,0.615,0.234,0.85,0c0.234-0.235,0.234-0.615,0-0.85l-2.25-2.25C4.281,7.169,4.121,7.114,3.961,7.118C3.802,7.114,3.642,7.169,3.52,7.291l-2.824,2.25c-0.234,0.235-0.234,0.615,0,0.85c0.235,0.234,0.615,0.234,0.85,0l1.957-1.559C3.435,9.212,3.386,9.6,3.386,10c0,3.812,3.09,6.901,6.902,6.901c2.083,0,3.946-0.927,5.212-2.387l-0.898-0.719C13.547,14.992,12.008,15.752,10.288,15.752z" fill="WHITE" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#btnOnSalir" prefHeight="44.0" prefWidth="46.0" stylesheets="@../../../../component/button/css/buttonCircle.css">
+                           <graphic>
+                              <SVGPath content="M3.24,7.51c-0.146,0.142-0.146,0.381,0,0.523l5.199,5.193c0.234,0.238,0.633,0.064,0.633-0.262v-2.634c0.105-0.007,0.212-0.011,0.321-0.011c2.373,0,4.302,1.91,4.302,4.258c0,0.957-0.33,1.809-1.008,2.602c-0.259,0.307,0.084,0.762,0.451,0.572c2.336-1.195,3.73-3.408,3.73-5.924c0-3.741-3.103-6.783-6.916-6.783c-0.307,0-0.615,0.028-0.881,0.063V2.575c0-0.327-0.398-0.5-0.633-0.261L3.24,7.51 M4.027,7.771l4.301-4.3v2.073c0,0.232,0.21,0.409,0.441,0.366c0.298-0.056,0.746-0.123,1.184-0.123c3.402,0,6.172,2.709,6.172,6.041c0,1.695-0.718,3.24-1.979,4.352c0.193-0.51,0.293-1.045,0.293-1.602c0-2.76-2.266-5-5.046-5c-0.256,0-0.528,0.018-0.747,0.05C8.465,9.653,8.328,9.81,8.328,9.995v2.074L4.027,7.771z" fill="#fff8f8" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                     </items>
+                  </ToolBar>
+                  <JFXComboBox fx:id="cbostatusCivil" editable="true" layoutX="28.0" layoutY="388.0" prefHeight="32.0" prefWidth="188.0" promptText="Estado Civil" />
+                  <Button layoutX="782.0" layoutY="336.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="53.0" stylesheets="@../../../../component/button/css/buttonSVG.css" textFill="#fbfdff">
+                     <graphic>
+                        <SVGPath content="M6 4.5c0-1.381 1.119-2.5 2.5-2.5s2.5 1.119 2.5 2.5c0 1.381-1.119 2.5-2.5 2.5s-2.5-1.119-2.5-2.5zM0 4.5c0-1.381 1.119-2.5 2.5-2.5s2.5 1.119 2.5 2.5c0 1.381-1.119 2.5-2.5 2.5s-2.5-1.119-2.5-2.5zM12 9.5v-1.5c0-0.55-0.45-1-1-1h-10c-0.55 0-1 0.45-1 1v5c0 0.55 0.45 1 1 1h10c0.55 0 1-0.45 1-1v-1.5l4 2.5v-7l-4 2.5zM10 12h-8v-3h8v3z" fill="#4691f6" scaleX="1.5" scaleY="1.5" stroke="#4691f6" />
+                     </graphic>
+                  </Button>
+                  <JFXTextField fx:id="txtSalary" focusColor="#55a83f" labelFloat="true" layoutX="386.0" layoutY="533.0" maxWidth="212.0" minWidth="156.0" prefHeight="31.0" prefWidth="188.0" promptText="Fecha Incio">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="fecStartContract" focusColor="#55a83f" labelFloat="true" layoutX="599.0" layoutY="533.0" maxWidth="118.0" minWidth="95.0" prefHeight="31.0" prefWidth="117.0" promptText="Salario">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="391.0" layoutY="435.0" styleClass="titleLabel" text="Contrato" textFill="#fbbc1b" />
+                  <JFXTextField fx:id="txtDocuments" focusColor="#55a83f" labelFloat="true" layoutX="386.0" layoutY="590.0" maxWidth="188.0" minWidth="156.0" prefHeight="31.0" prefWidth="188.0" promptText="Documento">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXComboBox fx:id="cboCargo" editable="true" layoutX="399.0" layoutY="475.0" prefHeight="32.0" prefWidth="163.0" promptText="%crudEmpleadoFxml.tipoEmpleado" />
+                  <JFXTextField fx:id="txtName" focusColor="#55a83f" labelFloat="true" layoutX="16.0" layoutY="154.0" maxWidth="349.0" minWidth="274.0" prefHeight="33.0" prefWidth="349.0" promptText="%crudEmpleadoFxml.nombre">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXDatePicker fx:id="txtBirthdate" layoutX="28.0" layoutY="335.0" prefHeight="15.0" prefWidth="231.0" promptText="Fecha Nacimiento" />
+                  <Label layoutX="31.0" layoutY="310.0" text="%crudEmpleadoFxml.fecNacimiento" textFill="#9d9797">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="454.0" text="%crudEmpleadoFxml.generoSex" textFill="#9d9797">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXTextArea fx:id="txtAddress" focusColor="#55a83f" labelFloat="true" layoutX="394.0" layoutY="318.0" maxWidth="263.0" minWidth="144.0" prefHeight="86.0" prefWidth="263.0" promptText="%crudEmpleadoFxml.direccion">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXTextArea>
+                  <Button fx:id="btnClearPhoto" layoutX="909.0" layoutY="336.0" mnemonicParsing="false" onAction="#btnOnClearPhoto" prefHeight="45.0" prefWidth="53.0" stylesheets="@../../../../component/button/css/buttonSVG.css" textFill="#fbfdff">
+                     <graphic>
+                        <SVGPath content="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306" fill="#4691f6" scaleX="1.5" scaleY="1.5" stroke="#4691f6" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnChooseImage" layoutX="849.0" layoutY="336.0" mnemonicParsing="false" onAction="#btnChooseImage" prefHeight="45.0" prefWidth="53.0" stylesheets="@../../../../component/button/css/buttonSVG.css" textFill="#fbfdff">
+                     <graphic>
+                        <SVGPath content="M8.416,3.943l1.12-1.12v9.031c0,0.257,0.208,0.464,0.464,0.464c0.256,0,0.464-0.207,0.464-0.464V2.823l1.12,1.12c0.182,0.182,0.476,0.182,0.656,0c0.182-0.181,0.182-0.475,0-0.656l-1.744-1.745c-0.018-0.081-0.048-0.16-0.112-0.224C10.279,1.214,10.137,1.177,10,1.194c-0.137-0.017-0.279,0.02-0.384,0.125C9.551,1.384,9.518,1.465,9.499,1.548L7.76,3.288c-0.182,0.181-0.182,0.475,0,0.656C7.941,4.125,8.234,4.125,8.416,3.943z M15.569,6.286h-2.32v0.928h2.32c0.512,0,0.928,0.416,0.928,0.928v8.817c0,0.513-0.416,0.929-0.928,0.929H4.432c-0.513,0-0.928-0.416-0.928-0.929V8.142c0-0.513,0.416-0.928,0.928-0.928h2.32V6.286h-2.32c-1.025,0-1.856,0.831-1.856,1.856v8.817c0,1.025,0.832,1.856,1.856,1.856h11.138c1.024,0,1.855-0.831,1.855-1.856V8.142C17.425,7.117,16.594,6.286,15.569,6.286z" fill="#4691f6" scaleX="1.5" scaleY="1.5" stroke="#4691f6" />
+                     </graphic>
+                  </Button>
+               </children>
+               <stylesheets>
+                  <URL value="@../css/crudEmployee.css" />
+                  <URL value="@../../../main/css/main.css" />
+               </stylesheets>
+            </AnchorPane>
+            <AnchorPane fx:id="anchSearch" layoutX="14.0" prefHeight="652.0" prefWidth="700.0" style="-fx-background-color: white;" styleClass="anchFoundCss" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <stylesheets>
+                  <URL value="@../../../main/css/main.css" />
+                  <URL value="@../css/crudEmployee.css" />
+               </stylesheets>
+               <children>
+                  <TableView fx:id="tbViewEmployee" layoutX="29.0" layoutY="140.0" prefHeight="373.0" prefWidth="1008.0">
+                    <columns>
+                        <TableColumn fx:id="columNombre" prefWidth="75.0" text="%crudEmpleadoFxml.tbView.nombre" />
+                        <TableColumn fx:id="columApellido" prefWidth="172.0" text="%crudEmpleadoFxml.tbView.apellido" />
+                        <TableColumn fx:id="columTelefono" minWidth="0.0" text="%crudEmpleadoFxml.tbView.telefono" />
+                        <TableColumn fx:id="columSexo" minWidth="5.0" prefWidth="58.0" text="%crudEmpleadoFxml.tbView.generoSex" />
+                        <TableColumn fx:id="columIdUbigeo" minWidth="0.0" prefWidth="161.0" text="%crudEmpleadoFxml.tbView.ubigeo" />
+                        <TableColumn fx:id="columfechaNac" minWidth="0.0" prefWidth="124.0" text="%crudEmpleadoFxml.tbView.telefono" />
+                        <TableColumn fx:id="columEmail" minWidth="0.0" prefWidth="62.0" text="%crudEmpleadoFxml.tbView.telefono" />
+                    </columns>
+                  </TableView>
+                  <Pagination fx:id="paginationEmployee" layoutX="245.0" layoutY="549.0" prefHeight="44.0" prefWidth="368.0" />
+                  <JFXComboBox fx:id="rowPageEmployee" layoutX="396.0" layoutY="515.0" prefHeight="27.0" prefWidth="66.0" />
+                  <ToolBar fx:id="toolBarNav" layoutX="245.0" layoutY="14.0" prefHeight="86.0" prefWidth="335.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="552.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="122.0">
+                    <items>
+                      <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnOnSearch" prefHeight="44.0" prefWidth="46.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+                           <stylesheets>
+                              <URL value="@../../../../component/button/css/buttonCircle.css" />
+                              <URL value="@../../../../component/button/css/buttonSVGfound.css" />
+                           </stylesheets>
+                           <graphic>
+                              <SVGPath content="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z" fill="WHITE" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnNavNew" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnOnNavNew" prefHeight="44.0" prefWidth="46.0" stylesheets="@../../../../component/button/css/buttonCircle.css">
+                           <graphic>
+                              <SVGPath content="M18.303,4.742l-1.454-1.455c-0.171-0.171-0.475-0.171-0.646,0l-3.061,3.064H2.019c-0.251,0-0.457,0.205-0.457,0.456v9.578c0,0.251,0.206,0.456,0.457,0.456h13.683c0.252,0,0.457-0.205,0.457-0.456V7.533l2.144-2.146C18.481,5.208,18.483,4.917,18.303,4.742 M15.258,15.929H2.476V7.263h9.754L9.695,9.792c-0.057,0.057-0.101,0.13-0.119,0.212L9.18,11.36h-3.98c-0.251,0-0.457,0.205-0.457,0.456c0,0.253,0.205,0.456,0.457,0.456h4.336c0.023,0,0.899,0.02,1.498-0.127c0.312-0.077,0.55-0.137,0.55-0.137c0.08-0.018,0.155-0.059,0.212-0.118l3.463-3.443V15.929z M11.241,11.156l-1.078,0.267l0.267-1.076l6.097-6.091l0.808,0.808L11.241,11.156z" fill="#f8f7f7" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                      <Button fx:id="btnNavEdit" mnemonicParsing="false" onAction="#btnOnNavEdit" prefHeight="44.0" prefWidth="46.0" stylesheets="@../../../../component/button/css/buttonCircle.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+                           <graphic>
+                              <SVGPath content="M13.5 0c1.381 0 2.5 1.119 2.5 2.5 0 0.563-0.186 1.082-0.5 1.5l-1 1-3.5-3.5 1-1c0.418-0.314 0.937-0.5 1.5-0.5zM1 11.5l-1 4.5 4.5-1 9.25-9.25-3.5-3.5-9.25 9.25zM11.181 5.681l-7 7-0.862-0.862 7-7 0.862 0.862z" fill="#fff9f9" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                       
+                   <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#btnOnDelete" prefHeight="44.0" prefWidth="46.0" stylesheets="@../../../../component/button/css/buttonCircle.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+                           <graphic>
+                              <SVGPath content="M17.114,3.923h-4.589V2.427c0-0.252-0.207-0.459-0.46-0.459H7.935c-0.252,0-0.459,0.207-0.459,0.459v1.496h-4.59c-0.252,0-0.459,0.205-0.459,0.459c0,0.252,0.207,0.459,0.459,0.459h1.51v12.732c0,0.252,0.207,0.459,0.459,0.459h10.29c0.254,0,0.459-0.207,0.459-0.459V4.841h1.511c0.252,0,0.459-0.207,0.459-0.459C17.573,4.127,17.366,3.923,17.114,3.923M8.394,2.886h3.214v0.918H8.394V2.886z M14.686,17.114H5.314V4.841h9.372V17.114z M12.525,7.306v7.344c0,0.252-0.207,0.459-0.46,0.459s-0.458-0.207-0.458-0.459V7.306c0-0.254,0.205-0.459,0.458-0.459S12.525,7.051,12.525,7.306M8.394,7.306v7.344c0,0.252-0.207,0.459-0.459,0.459s-0.459-0.207-0.459-0.459V7.306c0-0.254,0.207-0.459,0.459-0.459S8.394,7.051,8.394,7.306" fill="WHITE" scaleX="1.5" scaleY="1.5" />
+                           </graphic>
+                        </Button>
+                    </items>
+                  </ToolBar>
+                  <ProgressIndicator fx:id="progreesIndicatorTbView" prefHeight="210.0" prefWidth="121.0" visible="false" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="273.0" AnchorPane.topAnchor="141.0" />
+               </children>
+            </AnchorPane>
+            <ProgressIndicator fx:id="progressBarMain" layoutY="301.0" prefHeight="176.0" prefWidth="700.0" visible="false" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="301.0" />
+            <Region fx:id="backRegion" prefHeight="652.0" prefWidth="700.0" style="-fx-background-color: rgba(0, 0, 0, 0.4);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+       <DialogConfirmJCMR  fx:id="dialogConfimDelete" /> 
+   </children>
+</StackPane>

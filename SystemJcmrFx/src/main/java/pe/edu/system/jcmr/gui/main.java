@@ -16,7 +16,7 @@ public class main {
 	public static void main(String[] args) {
 		
 
-		
+		System.out.println("error");
 		         
 		    	ApplicationContext context =  new ClassPathXmlApplicationContext("classpath:/META-INF/spring-context.xml");
 		    	 

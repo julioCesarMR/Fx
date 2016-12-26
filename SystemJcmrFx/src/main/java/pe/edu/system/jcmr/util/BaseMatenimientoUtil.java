@@ -1,5 +1,6 @@
 package pe.edu.system.jcmr.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.value.ChangeListener;
@@ -11,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import pe.edu.system.jcmr.entity.BaseEntity;
@@ -30,6 +32,8 @@ public class BaseMatenimientoUtil extends UtilidadesFx{
             this.pagination = pagination;
             this.list = list;
             this.progreesIndicator = progreesIndicator;
+
+      
             pagination.setPageCount((this.list.size() /  getRowPage() + 1));
             pagination.setCurrentPageIndex(0);
 
@@ -40,7 +44,7 @@ public class BaseMatenimientoUtil extends UtilidadesFx{
                 pagination.setPageFactory(this::createPageIndicator);
             }
          
-      
+            
      }
 
     @SuppressWarnings("unchecked")
@@ -63,7 +67,9 @@ public class BaseMatenimientoUtil extends UtilidadesFx{
 				Thread.sleep(20);
 				int fromIndex = pageIndex * getRowPage();
 				int toIndex = Math.min(fromIndex + getRowPage(), list.size());
-				return (FXCollections.observableArrayList(list.subList(fromIndex, toIndex)));
+
+                return (FXCollections.observableArrayList(list.subList(fromIndex, toIndex)));
+	
 
 			}
 		};
@@ -111,8 +117,25 @@ public class BaseMatenimientoUtil extends UtilidadesFx{
 	}
 
 
-	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public ObservableList filterPlantList(String newValue, ObservableList items) {
 
+		ObservableList<Object> tableItems = FXCollections.observableArrayList();
+		ObservableList<TableColumn<Object, Object>> columnas = tableView.getColumns();
+		for (Object object : items) {
+
+			for (TableColumn<Object, Object> colum : columnas) {
+				String cellValue = colum.getCellData(object).toString();
+				cellValue = cellValue.toLowerCase();
+				if (cellValue.contains(newValue.toLowerCase())) {
+					tableItems.add(object);
+					break;
+				}
+			}
+
+		}
+		 return tableItems;
+	}
 
 
 	

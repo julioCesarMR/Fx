@@ -1,6 +1,8 @@
 package pe.edu.system.jcmr.entity;
 
-public class BaseEntity {
+import pe.edu.system.jcmr.utilCommon.ResourcesI18n;
+
+public class BaseEntity extends ResourcesI18n {
 
 	private String codigo;
 	private String descripcion;
@@ -34,7 +36,15 @@ public class BaseEntity {
 	}
 	@Override
 	public String toString() {
-		return descripcion;
+		if (getResourceMessage(descripcion)!= null && getResourceMessage(descripcion).length()>0) {
+			return getResourceMessage(descripcion);
+		
+		} else {
+			System.out.println("roles"+getResourceMessage(descripcion));
+			return descripcion;
+			
+		}
+
 	}
 
 

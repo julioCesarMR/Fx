@@ -25,6 +25,7 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,7 +53,7 @@ import pe.edu.system.jcmr.validation.ValidationJcmr;
 * @author Julio Cesar Meza Rios
 */
 
-public class LoguinController extends UtilidadesFx implements Initializable{
+public class LoguinController extends UtilidadesFx implements Initializable,EventHandler<Event>{
 
 	
 
@@ -227,6 +228,17 @@ public class LoguinController extends UtilidadesFx implements Initializable{
 	
     	
 }
+
+	@Override
+	public void handle(Event event) {
+		
+		System.out.println("xvx"+event);
+		
+	}
+
+
+
+	
 
 }
 

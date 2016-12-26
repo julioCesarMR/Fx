@@ -1,0 +1,51 @@
+.text-input{
+	   	 
+	  -fx-background-image:url('searchField1.png');
+      -fx-background-repeat: no-repeat;
+      -fx-border-color: gray;
+      -fx-background-insets: 0, 0 35 0 0;
+     
+      -fx-background-position: right center;
+
+    -fx-background-color: white;
+
+    -fx-prompt-text-fill: #818181;
+    -fx-highlight-fill: #008287; /* TODO: this probably is the "active" color"   #F6F7F9 */
+    -fx-highlight-text-fill: white;
+    -fx-background-color:  #F6F7F9   , white;
+    -fx-background-radius: 20, 0,50,100;
+    -fx-text-fill: black  ;
+    -fx-border-radius: 10 10 10 10;
+
+}
+
+.text-input:hover{
+    -fx-background-color: #e2e2e2;
+}
+
+.text-input:focused{
+    -fx-background-color: #e2e2e2, white;
+    -fx-text-fill: black;
+}
+
+
+
+.text-input > .right-button:hover {
+    -fx-background-color: #dedede;
+}
+
+.text-input > .right-button:pressed {
+    -fx-background-color: black;
+}
+
+.text-input > .right-button:pressed > .right-button-graphic {
+    -fx-background-color: white;
+}
+
+.text-input:disabled
+{
+    -fx-opacity: 1;
+    -fx-background-insets: 0, 2;
+    -fx-background-color: #e7e6e6;
+    -fx-text-fill: #999999;
+}

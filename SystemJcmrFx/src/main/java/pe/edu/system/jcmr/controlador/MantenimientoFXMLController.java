@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,12 +20,20 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -41,6 +50,7 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
@@ -52,6 +62,7 @@ import pe.edu.system.jcmr.component.DialogConfirmJCMR.ModalDialogAnimation;
 import pe.edu.system.jcmr.entity.BaseEntity;
 import pe.edu.system.jcmr.entity.TbEmpleado;
 import pe.edu.system.jcmr.entity.TbRol;
+import pe.edu.system.jcmr.entity.TbUbigeo;
 import pe.edu.system.jcmr.gui.MailMail;
 import pe.edu.system.jcmr.service.EmployedService;
 import pe.edu.system.jcmr.service.RolService;
@@ -59,6 +70,7 @@ import pe.edu.system.jcmr.service.UbigeoService;
 import pe.edu.system.jcmr.util.BaseMatenimientoUtil;
 import pe.edu.system.jcmr.util.FormattedDateValueFactory;
 import pe.edu.system.jcmr.util.ImgeUtilFx;
+import pe.edu.system.jcmr.util.SessionJCMR;
 import pe.edu.system.jcmr.utilCommon.ConstansRegx;
 import pe.edu.system.jcmr.validation.ValidationJcmr;
 
@@ -70,7 +82,7 @@ import pe.edu.system.jcmr.validation.ValidationJcmr;
 */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 
-public  class MantenimientoFXMLController extends BaseMatenimientoUtil implements Initializable {
+public  class MantenimientoFXMLController extends BaseMatenimientoUtil implements Initializable  {
 
 
 
@@ -92,7 +104,7 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 	@FXML	private RadioButton rboFemale;
 	@FXML	private JFXComboBox<BaseEntity> cboDistrito;
 	@FXML	private JFXComboBox<BaseEntity> cboDepartamento;
-	@FXML	private JFXComboBox<TbRol> cboCargo;
+	@FXML	private JFXComboBox<BaseEntity> cboCargo;
 	@FXML	private JFXComboBox<BaseEntity> cboProvincia;
 	@FXML	private JFXComboBox<BaseEntity> cbostatusCivil;
 	@FXML	private JFXTextArea txtAddress;
@@ -132,6 +144,7 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 	
     @FXML   private DialogConfirmJCMR dialogConfimDelete;
 	
+    @FXML   private TextField  txtSearchEmployed;
 
 	private boolean newRecord;
 	
@@ -142,11 +155,16 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
     ObservableList<TbEmpleado>  employees;
 	List<BaseEntity> provincias =null;
 	List<BaseEntity> distritos = null; 
-	ObservableList<TbRol> roles;
+	ObservableList<BaseEntity> roles;
 	
 	RolService  rolService =(RolService) getBean("rolService");
+	EmployedService employedService = (EmployedService) getBean("employedService");
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		
+		rbMale.setUserData("M");
+		rboFemale.setUserData("F");
+		
 //		progressBarMain.setVisible(false);
 //		backRegion.setVisible(false);
 //		backRegion.setPrefHeight(652);
@@ -160,32 +178,13 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 
 
 	     txtBirthdate.setDefaultColor(Color.valueOf("#9A9C9E"));
-         eliminarEmpleado();
+	     
+	     
+	     searchEmployed();
+     
 	}
 	
-	public void eliminarEmpleado(){
-	   
-		dialogConfimDelete.btnConfirm.setOnAction((event) -> {
 
-			TbEmpleado employee = tbViewEmployee.getSelectionModel().getSelectedItem();
-
-			EmployedService employedService = (EmployedService) getBean("employedService");
-			this.menssajeValidation("", this.getResourceMessage("datos.delete.ok",new Object[]{employee.getNombre()}));
-			tbViewEmployee.getSelectionModel().clearSelection();
-
-			dialogConfimDelete.closeDialog();
-		});
-
-        dialogConfimDelete.btnCancel.setOnAction((event)->{
-        	
-        	tbViewEmployee.getSelectionModel().clearSelection();
-    		dialogConfimDelete.closeDialog();
-        });
-
-		  
-
-		
-	}
 	
 	public void loadPageRow(){
 		List<BaseEntity> numberRows = new ArrayList<BaseEntity>();
@@ -227,26 +226,7 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 //					@Override
 //					protected Void call() throws Exception {
 //
-////                             TbEmpleado	 empleado = new TbEmpleado();
-////       						 empleado.setEmpleadoId(145);
-////       						 empleado.setNombre("Rios");
-////       						 empleado.setDireccion("zzzz");
-////       						 empleado.setEmail("xxc@hotmail.com");
-////       						 empleado.setCelular("526110944");
-////       						 empleado.setSexo("M");
-////       						 empleado.setTelefono("526110944");
-////       				         empleado.setFechaNac(new Date());
-////       				     
-////       				         TbUbigeo u = new TbUbigeo();
-////       				         u.setUbigeoId(3631);
-////       				         
-////       				         empleado.setTbUbigeo(u);
-////       				         TbRol r = new TbRol();
-////       				         r.setIdrol(1);
-////       				         
-////       				         empleado.setTbRol(r);
-////       				     	 EmployedService m = (EmployedService) getBean("employedService");
-////       						 m.insert(empleado);
+////                            
 //
 //						return null;
 //					}
@@ -281,13 +261,42 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 
 
 	}
+	
+	private void onSaveEmployed() {
+		TbEmpleado empleado = new TbEmpleado();
+		empleado.setEmpleadoId(145);
+		empleado.setNombre(txtName.getText());
+		empleado.setApellido(txtLastName.getText());
+		empleado.setDni(Integer.parseInt(txtNumDocument.getText()));
+		empleado.setClave(txtPassword.getText());
+		empleado.setDireccion("zzzz");
+		empleado.setEmail("xxc@hotmail.com");
+		empleado.setCelular("526110944");
+		empleado.setSexo("M");
+		empleado.setTelefono("526110944");
+		empleado.setFechaNac(new Date());
+        empleado.setSexo(groupRadioBu.getSelectedToggle().getUserData().toString());
+        empleado.setTelefono(txtPhone.getText());
+        empleado.setCelular(txtCell.getText());
+        empleado.setEmail(txtEmail.getText());
+        
+		TbUbigeo u = new TbUbigeo();
+		u.setUbigeoId(3631);
 
-	@FXML
-	public void btnOnSearch(ActionEvent event) {
+		empleado.setTbUbigeo(u);
+		TbRol r = new TbRol();
+		r.setIdrol(1);
 
-		loadGridEmployed();
-
+		empleado.setTbRol(r);
+	
+	//	employedService.insert(empleado);
 	}
+	
+	private void onSearch(){
+		loadGridEmployed();
+	}
+
+	
 	@FXML
 	void btnOnNavEdit(ActionEvent event) {
 		try {
@@ -334,32 +343,41 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 		newRecord = true;
 
 	}
-	@FXML
-	void btnOnDelete(ActionEvent event) {
-		
+
+	
+	public void onDeleteEmployed(){
 	    TbEmpleado employee = tbViewEmployee.getSelectionModel().getSelectedItem();
 	    if(employee!=null){
 			dialogConfimDelete.titleMessage(this.getResourceMessage("confirm.title.information"));
 			dialogConfimDelete.message(this.getResourceMessage("confirm.delete.message"));
 			dialogConfimDelete.show(ModalDialogAnimation.RIGHT);
 
+			dialogConfimDelete.btnConfirm.setOnAction((event) -> {
+
+				System.out.println("OK");
+				dialogConfimDelete.closeDialog();
+			});
+
+	        dialogConfimDelete.btnCancel.setOnAction((event)->{
+	        	System.out.println("CANCELAR");
+	        	tbViewEmployee.getSelectionModel().clearSelection();
+	    		dialogConfimDelete.closeDialog();
+	        });
+			
 	    }else{
 	    	menssajeValidation("", this.getResourceMessage("select.info.message"));
 	    }
-
-  		
 	}
 
-	@FXML void btnOnRefresh(ActionEvent event) {
-		
+	public void onRefresh() {
 		for (Node node : anchCRUD.getChildren()) {
-		    if (node instanceof TextField) {
-		        ((TextField)node).setText("");
-		    }
-		    
-		}
+			if (node instanceof TextField) {
+				((TextField) node).setText("");
+			}
 
+		}
 	}
+
 
 	@FXML void btnChooseImage(ActionEvent event) throws IOException{
 		FileChooser fileChooser = new FileChooser();
@@ -383,16 +401,16 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 
 		imgPhotoEmployee.setImage(new Image("/META-INF/negocio/mantenimento/crudEmployee/img/webcam.png"));
 	}
+
 	
-	@FXML void btnOnSalir(ActionEvent event) {
+    void onSalir() {
 		anchCRUD.setVisible(false);
 		anchSearch.setVisible(true);
-
 	}
-
+	
 	private void loadRol() {
 
-		roles = FXCollections.observableArrayList(rolService.getRoles());
+		roles = FXCollections.observableArrayList(rolService.getBaseRoles());
 		cboCargo.getItems().addAll(roles);
 
 	}
@@ -543,14 +561,58 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 		columTelefono.setCellValueFactory(new PropertyValueFactory("telefono"));
 		columfechaNac.setCellValueFactory(new FormattedDateValueFactory<TbEmpleado>("fechaNac", ConstansRegx.DATEFORM_DAY_MONTH_YEAR));
 		columEmail.setCellValueFactory(new PropertyValueFactory("email"));
+		columSexo.setCellValueFactory(new PropertyValueFactory("sexo"));
 		columIdUbigeo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTbUbigeo().getDepartamento()));
 
 		tbViewEmployee.setItems(employees);
 
 		createPaginator(tbViewEmployee, paginationEmployee, employees, progreesIndicatorTbView);
 		createRowPage(rowPageEmployee);
+    
 	}
 
+
+	public void searchEmployed(){
+		txtSearchEmployed.textProperty().addListener(new InvalidationListener() {
+			
+			@Override
+			public void invalidated(Observable observable) {
+				if(getEmployees()!=null && getEmployees().size()>0)
+				if (txtSearchEmployed.textProperty().get().isEmpty()) {
+					tbViewEmployee.setItems(getEmployees());
+					return;
+				} else{
+				    ObservableList  emp=  	filterPlantList(txtSearchEmployed.textProperty().get(), getEmployees());
+					System.out.println("xzc:"+emp.size());
+				    tbViewEmployee.setItems(filterPlantList(txtSearchEmployed.textProperty().get(), getEmployees()));
+					createPaginator(tbViewEmployee, paginationEmployee, emp, progreesIndicatorTbView);
+					createRowPage(rowPageEmployee);
+			  
+				}
+				
+			
+				
+//				 ObservableList<TbEmpleado> tableItems = FXCollections.observableArrayList();
+//	                ObservableList<TableColumn<TbEmpleado, ?>> cols = tbViewEmployee.getColumns();
+//	                for(int i=0; i<getEmployees().size(); i++) {
+//	                    
+//	                    for(int j=0; j<cols.size(); j++) {
+//	                        TableColumn col = cols.get(j);
+//	                        String cellValue = col.getCellData(getEmployees().get(i)).toString();
+//	                        cellValue = cellValue.toLowerCase();
+//	                        if(cellValue.contains(txtSearchEmployed.textProperty().get().toLowerCase())) {
+//	                            tableItems.add(getEmployees().get(i));
+//	                            break;
+//	                        }                        
+//	                    }
+//
+//	                }
+//	                tbViewEmployee.setItems(tableItems);
+			}
+			
+		});
+		
+	}
 
 	public Integer ubigeoId() {
 		UbigeoService ubigeoService =(UbigeoService)getBean("ubigeoService");
@@ -574,34 +636,55 @@ public  class MantenimientoFXMLController extends BaseMatenimientoUtil implement
 		this.newRecord = newRecord;
 	}
 
-	public ObservableList<TbRol> getRoles() {
+	public ObservableList<BaseEntity> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(ObservableList<TbRol> roles) {
+	public void setRoles(ObservableList<BaseEntity> roles) {
 		this.roles = roles;
 	}
 
-	
+	public void handleButtonAction(ActionEvent event) {
 
+		Platform.runLater(new Runnable() {
 
+			@Override
+			public void run() {
 
+				Button button = (Button) event.getSource();
 
+				switch (button.getId()) {
+				case "btnDelete":
+					onDeleteEmployed();
+					break;
+				case "btnSave":
+					break;
+				case "btnSearch":
+					onSearch();
+					break;
+				case "btnSalir":
+					onSalir();
+					break;
+				case "btnRefresh":
+					onRefresh();
+					break;
 
+				}
 
-
-
-
-	
-	
-	
-
-	
-
-
-	
-
+			}
+		});
+	}
 }
+
+
+
+
+	
+
+
+	
+
+
 	
 	
 
